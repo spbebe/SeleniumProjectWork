@@ -23,7 +23,7 @@ public class Screenshot {
     protected static Logger logger = LogManager.getLogger(Screenshot.class);
     @Attachment(value = "Képernyőmentés", type="image/png")
     public static byte[] takesScreenshot(WebDriver driver) throws IOException {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmss");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmssSSS");
         String timestamp = dateFormat.format(new Date());
 
         byte[] screen = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);

@@ -13,7 +13,7 @@ public class Consts {
     public static final String CONFIG_PROPERTIES = "/config.properties";
     public static final String GLOBAL_TEST_DATA_PROPERTIES = "/globalTestData.properties";
     public static final String SCREENSHOTS_FOLDER = System.getProperty("user.dir")
-            .replace("\\", "/") + "target/screenshots";
+            .replace("\\", "/") + "/target/screenshots";
 
     // Konstansok a Loginhoz
     public static final String LOGIN_USERNAME = "login.userName";

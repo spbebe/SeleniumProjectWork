@@ -31,18 +31,20 @@ public class WebBrowser {
                 chromeOptions.setExperimentalOption("excludeSwitches", new String[]{"enable-automation", "disable-logging"});
                 chromeOptions.setBinary(WebBrowserSetting.getPathToChrome());
                 chromeOptions.addArguments("--remote-allow-origins=*");
+                chromeOptions.addArguments("ignore-certificate-errors");
+                chromeOptions.addArguments("'--ignore-ssl-errors=yes");
                 //chromeOptions.addArguments("--log-level=3");
-//			chromeOptions.addArguments("--headless");
+//       chromeOptions.addArguments("--headless");
                 driver = new ChromeDriver(chromeOptions);
                 break;
             case Firefox:
                 System.setProperty("webdriver.gecko.driver", WebBrowserSetting.getPathToGeckodriver());
-//			System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "false");
+//       System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "false");
 
                 ffOptions = new FirefoxOptions();
                 ffOptions.setProfile(new FirefoxProfile());
                 ffOptions.setLogLevel(FirefoxDriverLogLevel.DEBUG);
-//			ffOptions.setCapability("marionette", true);
+//       ffOptions.setCapability("marionette", true);
 
                 ffOptions.setBinary(WebBrowserSetting.getPathToFirefox());
                 driver = new FirefoxDriver(ffOptions);
@@ -51,15 +53,19 @@ public class WebBrowser {
                 WebDriverManager.chromedriver().setup();
                 chromeOptions = new ChromeOptions();
                 chromeOptions.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
-
+                chromeOptions.addArguments("ignore-certificate-errors");
+                chromeOptions.addArguments("'--ignore-ssl-errors=yes");
                 driver = new ChromeDriver(chromeOptions);
                 break;
             case ChromeSM:
-                driver = new ChromeDriver();
+                chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("ignore-certificate-errors");
+                chromeOptions.addArguments("'--ignore-ssl-errors=yes");
+                driver = new ChromeDriver(chromeOptions);
                 break;
             case FirefoxWDM:
                 WebDriverManager.firefoxdriver().setup();
-//			System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "false");
+//       System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "false");
 
                 ffOptions = new FirefoxOptions();
                 ffOptions.setProfile(new FirefoxProfile());
@@ -75,7 +81,7 @@ public class WebBrowser {
                 EdgeOptions edgeOptions = new EdgeOptions();
                 edgeOptions.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
                 edgeOptions.addArguments("--remote-allow-origins=*");
-//			edgeOptions.setCapability("ignore-certificate-errors", true);
+//       edgeOptions.setCapability("ignore-certificate-errors", true);
                 WebDriverManager.edgedriver().setup();
                 driver = new EdgeDriver(edgeOptions);
                 break;
