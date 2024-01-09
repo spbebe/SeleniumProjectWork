@@ -23,16 +23,16 @@ import static org.junit.jupiter.api.Assertions.fail;
  * külön megtennünk minden egyes osztályban.
  */
 
-public class BasePage {
 
-    protected static Logger logger = LogManager.getLogger(BasePage.class);
+    public class BasePage {
 
-    protected static WebDriver driver;
+        protected static Logger logger = LogManager.getLogger(hu.masterfield.pages.BasePage.class);
 
-    protected static WebDriverWait wait;
+        protected static WebDriver driver;
 
-    protected static GlobalTestData globalTestData = new GlobalTestData();
+        protected static WebDriverWait wait;
 
+        protected static GlobalTestData globalTestData = new GlobalTestData();
     public BasePage(WebDriver driver) {
         BasePage.driver = driver;
         BasePage.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
