@@ -14,7 +14,7 @@ import org.openqa.selenium.support.FindBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@Feature("Bejelentkezési képernyő kezeleése")
+@Feature("Bejelentkezési képernyő kezelése")
 public class LoginPage extends BasePage {
 
     protected static Logger logger = LogManager.getLogger(LoginPage.class);
@@ -142,17 +142,4 @@ public class LoginPage extends BasePage {
         return isCookieVisible;
     }
 
-    public void setTextbox(WebElement webElement, String webElementName, String text) {
-        if (webElement.getText().isEmpty()) {
-            // TO DO NOTHING
-        } else {
-            try {
-                webElement.clear();
-                logger.trace(webElementName + ".sendKeys() called...");
-            } catch (Exception ex) {
-                logger.warn(webElementName + " textbox cannot clear.");
-            }
-        }
-        webElement.sendKeys(text);
-    }
 }

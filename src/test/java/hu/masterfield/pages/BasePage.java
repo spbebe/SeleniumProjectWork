@@ -23,16 +23,16 @@ import static org.junit.jupiter.api.Assertions.fail;
  * külön megtennünk minden egyes osztályban.
  */
 
+public class BasePage {
 
-    public class BasePage {
+    protected static Logger logger = LogManager.getLogger(BasePage.class);
 
-        protected static Logger logger = LogManager.getLogger(hu.masterfield.pages.BasePage.class);
+    protected static WebDriver driver;
 
-        protected static WebDriver driver;
+    protected static WebDriverWait wait;
 
-        protected static WebDriverWait wait;
+    protected static GlobalTestData globalTestData = new GlobalTestData();
 
-        protected static GlobalTestData globalTestData = new GlobalTestData();
     public BasePage(WebDriver driver) {
         BasePage.driver = driver;
         BasePage.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
@@ -65,4 +65,20 @@ import static org.junit.jupiter.api.Assertions.fail;
                     + ex.getStackTrace());
         }
     }
+
+    public void setTextbox(WebElement webElement, String webElementName, String text) {
+        if (webElement.getText().isEmpty()) {
+            // TO DO NOTHING
+        } else {
+            try {
+                webElement.clear();
+                logger.trace(webElementName + ".clear() called");
+            } catch (Exception ex) {
+                logger.warn(webElementName + " textbox cannot clear.");
+            }
+        }
+        webElement.sendKeys(text);
+        logger.trace(webElementName + ".sendKeys() called");
+    }
+
 }
