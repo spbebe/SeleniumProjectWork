@@ -21,7 +21,7 @@ import java.util.Date;
 
 public class Screenshot {
     protected static Logger logger = LogManager.getLogger(Screenshot.class);
-    @Attachment(value = "Képernyőmentés", type="image/png")
+    @Attachment(value = "Képernyőmentés", type="image/png")  //@Attachment miatt kerül be majd a riportba
     public static byte[] takesScreenshot(WebDriver driver) throws IOException {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmssSSS");
         String timestamp = dateFormat.format(new Date());

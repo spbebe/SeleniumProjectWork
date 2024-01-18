@@ -5,8 +5,6 @@ import hu.masterfield.pages.GDPRBannerPage;
 import hu.masterfield.pages.LoginPage;
 import hu.masterfield.pages.RegistrationFirstPage;
 import hu.masterfield.pages.RegistrationSecondPage;
-import hu.masterfield.utils.Consts;
-import hu.masterfield.utils.GlobalTestData;
 import hu.masterfield.utils.Screenshot;
 import io.qameta.allure.Description;
 import org.apache.logging.log4j.LogManager;
@@ -18,8 +16,7 @@ import org.junit.jupiter.api.TestInfo;
 
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
@@ -48,20 +45,40 @@ public class TC2_Registration_Test extends BaseTest {
         logger.info("Login page will be opened...");
 
         logger.info("Registration");
-        LoginPage loginPage = new LoginPage(driver);
-        assertTrue(loginPage.isLoaded());
-        loginPage.registrationStart();
+        LoginPage loginPageOne = new LoginPage(driver);
+        assertTrue(loginPageOne.isLoaded());
+        loginPageOne.registrationStart();
 
         RegistrationData registrationData = new RegistrationData();
         logger.info(registrationData);
 
+        // Regisztrációs űrlap első oldalának kitöltése
         logger.info("RegistrationFirstPage betöltése");
         RegistrationFirstPage registrationFirstPage = new RegistrationFirstPage(driver);
         assertTrue(registrationFirstPage.isLoaded());
+        Screenshot.takesScreenshot(driver);
         RegistrationSecondPage registrationSecondPage = registrationFirstPage.registrationFirstPage();
 
+        // Regisztrációs űrlap második oldalának kitöltése
+        logger.info("RegistrationSecondPage betöltése");
+        assertTrue(registrationSecondPage.isLoaded());
+        Screenshot.takesScreenshot(driver);
+        LoginPage loginPageTwo = registrationSecondPage.registrationSecondPage();
 
+        //Ellenőrzi, hogy a regisztráció sikeres volt-e, erről megjelent-e a szöveg
+        logger.info("Regisztráció sikerességének ellenőrzése");
+        assertTrue(loginPageTwo.registrationIsSuccessful());
+        Screenshot.takesScreenshot(driver);
 
+        //          /\
+        //          ||
+        //          \/
+
+        if (loginPageTwo.registrationIsSuccessful()) {
+            logger.info("TEST PASSED");
+            // TEST PASSED
+        } else {
+            fail("Registration failed");
+        }
     }
-
 }

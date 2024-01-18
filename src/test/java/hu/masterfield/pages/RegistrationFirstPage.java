@@ -71,7 +71,7 @@ public class RegistrationFirstPage extends BasePage{
      * @return true , ha az oldal betöltődött, megjelentek az elvárt elemek és
      * kattinthatóak
      */
-    @Step("Regisztrációs oldal betöltésének ellenőrzése")
+    @Step("Regisztrációs űrlap 1. oldalának betöltésének ellenőrzése")
     public boolean isLoaded() {
         boolean isLoaded = isLoaded(titleSelect)
                 && isLoaded(firstnameInput)
