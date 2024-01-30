@@ -21,7 +21,7 @@ public class Proba extends BaseAPITest{
                 .get("/api/v1/user")
                 .then()
                 .statusCode(200)
-                .body("username", equalTo("22admin@demo.io"));
+                .body("username", equalTo("admin@demo.io"));
 
 //        response.prettyPrint();
 
