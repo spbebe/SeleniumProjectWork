@@ -33,12 +33,11 @@ public class BaseTest implements TestWatcher {
 
     @BeforeAll
     public static void setup() {
-        logger.info("BaseTest setup called.");
+        logger.info("BaseTest.setup called.");
         driver = WebBrowser.createDriver(WebBrowserType.ChromeSM);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-
         logger.info("BaseTest.setup WebDriver started.");
 
         String baseURL = configData.getProperty(Consts.APPLICATION_URL);
@@ -50,7 +49,7 @@ public class BaseTest implements TestWatcher {
     public static void cleanup() {
         logger.info("BaseTest.cleanup called...");
 
-        driver.quit();
+//        driver.quit();
 
         logger.info("BaseTest.cleanup WebDriver quit...");
     }

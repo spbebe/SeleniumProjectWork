@@ -34,7 +34,7 @@ public class RegistrationFirstPage extends BasePage{
     @FindBy(xpath="//input[@type='radio' and @name='gender' and @value='M']")
     private WebElement genderMaleRadio;
 
-    // női nem kiválsztása
+    // női nem kiválasztása
     @FindBy(css="input[type='radio'][name='gender'][value='F']")
     private WebElement genderFemaleRadio;
 
@@ -63,6 +63,7 @@ public class RegistrationFirstPage extends BasePage{
     private WebElement nextPageButton;
 
     public RegistrationFirstPage(WebDriver driver) {
+
         super(driver);
     }
 

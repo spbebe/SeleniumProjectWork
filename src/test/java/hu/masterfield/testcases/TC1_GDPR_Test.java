@@ -29,7 +29,7 @@ public class TC1_GDPR_Test extends BaseTest{
     @Tag("TC1")
     @Tag("GDPR")
     public void test_TC1_GDPR(TestInfo testInfo) throws IOException, InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(10000);
         logger.info(testInfo + " started");
 
         GDPRBannerPage gdprPage = new GDPRBannerPage(driver);

@@ -16,7 +16,8 @@ import org.junit.jupiter.api.TestInfo;
 
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 
 /**
@@ -31,9 +32,9 @@ public class TC2_Registration_Test extends BaseTest {
     @Description("TC2 - Sikeres regisztráció tesztelése érvényes adatokkal")
     @Tag("TC2")
     @Tag("Regisztráció")
-    public void TC2_Registration_Test(TestInfo testInfo) throws IOException, InterruptedException {
+    public void TC2_Registration_Test(TestInfo testInfo) throws InterruptedException, IOException {
         Thread.sleep(10000);
-        logger.info(testInfo + " started.");
+        logger.info(testInfo + " started");
 
         GDPRBannerPage gdprPage = new GDPRBannerPage(driver);
 

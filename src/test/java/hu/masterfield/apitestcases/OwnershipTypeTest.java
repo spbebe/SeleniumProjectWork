@@ -51,7 +51,6 @@ public class OwnershipTypeTest extends BaseAPITest {
                 .body("[1].code", equalTo("JNT"))
                 .body("[1].name", equalTo("Joint"));
 
-        assertEquals(response.prettyPrint(), expectedResponse);
-
+        assertEquals(expectedResponse, response.prettyPrint());
     }
 }

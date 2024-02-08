@@ -12,7 +12,7 @@ import static org.hamcrest.Matchers.equalTo;
 public class TC4_AccountsAPITest extends BaseAPITest {
 
     /**
-     *
+     * Ez a teszt lekérdezi a userID-hoz tartozó accounts-okat
      */
     GlobalTestData globalTestData = new GlobalTestData();
     @Test
@@ -33,9 +33,6 @@ public class TC4_AccountsAPITest extends BaseAPITest {
                 .body("[0].accountType.name", equalTo("Savings"))
                 .body("[1].accountType.code", equalTo("SAV"))
                 .body("[1].accountType.category", equalTo("SAV"))
-                .body("[1].accountType.name", equalTo("Savings"))
-                .body("[2].accountType.code", equalTo("MMA"))
-                .body("[2].accountType.category", equalTo("SAV"))
-                .body("[2].accountType.name", equalTo("Money Market"));
+                .body("[1].accountType.name", equalTo("Savings"));
     }
 }

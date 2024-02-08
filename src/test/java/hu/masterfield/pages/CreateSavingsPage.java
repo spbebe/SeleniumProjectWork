@@ -20,7 +20,7 @@ public class CreateSavingsPage extends BasePage{
     protected static Logger logger = LogManager.getLogger(CreateSavingsPage.class);
 
     // Az oldalon található webelementek azonosítása.
-    // Ezek szükségesek a Savings accountok létrehozásához-
+    // Ezek szükségesek a Savings accountok létrehozásához
 
     // Savings radio button
     @FindBy(id=Consts.ACCOUNT_TYPES_SAVINGS)
@@ -91,6 +91,5 @@ public class CreateSavingsPage extends BasePage{
         buttonNewSavingsSubmit.click();
 
         return new ViewSavingsAccountsPage(driver);
-
     }
 }

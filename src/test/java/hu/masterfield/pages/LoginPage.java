@@ -3,6 +3,7 @@ package hu.masterfield.pages;
 /* Bejelentkezési képernyő osztálya.
  */
 
+import hu.masterfield.utils.GlobalTestData;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
@@ -14,7 +15,7 @@ import org.openqa.selenium.support.FindBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@Feature("Bejelentkezési képernyő kezelése")
+@Feature("Bejelentkezési képernyő kezeleése")
 public class LoginPage extends BasePage {
 
     protected static Logger logger = LogManager.getLogger(LoginPage.class);
@@ -121,7 +122,7 @@ public class LoginPage extends BasePage {
 
     /**
      *
-     * @return true, abban az esetben, ha sikeres volt a kilépés
+     * @return true , abban az esetben, ha sikeres volt a kilépés
      */
     @Step("Logout ellenőrzése")
     public boolean validateLogout() {
@@ -134,7 +135,7 @@ public class LoginPage extends BasePage {
 
     /**
      * Cookiek ellenőrzése
-     * @return true, ha a "sütiket használ az oldal" szöveget tartalmazó webelement látható az oldalon.
+     * @return true, ha a "sütik használ az oldal" szöveget tartalmazó webelement láthatóak az oldalon.
      */
     @Step("Cookiek ellenőrzése")
     public boolean isCookieVisible(){

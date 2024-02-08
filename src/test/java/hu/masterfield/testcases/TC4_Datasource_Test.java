@@ -32,8 +32,8 @@ public class TC4_Datasource_Test extends BaseTest {
     @Tag("Sorozatos")
     @Tag("Adatbevitel")
     @Tag("Adatforrás")
-    public void TC4_Datasource(TestInfo testInfo) {
-
+    public void TC4_Datasource(TestInfo testInfo) throws InterruptedException {
+        Thread.sleep(5000);
         logger.info(testInfo.getDisplayName() + " started.");
 
         // CSV file betöltése
@@ -71,7 +71,5 @@ public class TC4_Datasource_Test extends BaseTest {
 
             viewSavingsAccountsPage.validatePage(saving);
         }
-
     }
-
 }

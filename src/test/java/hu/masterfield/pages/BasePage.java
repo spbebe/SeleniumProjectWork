@@ -28,7 +28,6 @@ public class BasePage {
     protected static Logger logger = LogManager.getLogger(BasePage.class);
 
     protected static WebDriver driver;
-
     protected static WebDriverWait wait;
 
     protected static GlobalTestData globalTestData = new GlobalTestData();
@@ -80,5 +79,4 @@ public class BasePage {
         webElement.sendKeys(text);
         logger.trace(webElementName + ".sendKeys() called");
     }
-
 }

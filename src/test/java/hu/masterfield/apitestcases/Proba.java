@@ -24,6 +24,5 @@ public class Proba extends BaseAPITest{
                 .body("username", equalTo("admin@demo.io"));
 
 //        response.prettyPrint();
-
     }
 }

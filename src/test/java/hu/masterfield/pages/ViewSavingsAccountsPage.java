@@ -36,15 +36,32 @@ public class ViewSavingsAccountsPage extends BasePage{
     //@FindBy(css="div[id='firstRow'] div[class='card-body']")
     //@FindBy(css="div#firstRow > div > div > form > div.card-body")
 
+
     @FindBy(css="div#firstRow div.card-body")
     private List<WebElement> cards;
 
     // Page title
-    @FindBy(xpath="//h1[text()='View Savings Accounts']")
+    @FindBy(xpath="//a[@id='view-savings-menu-item']")
     private WebElement pageTitle;
+
+    @FindBy(id="largeModalLabel")
+    private WebElement noAccounts;
+
+    @FindBy(xpath = "//button[text()='Continue']")
+    private WebElement continueButton;
 
     public ViewSavingsAccountsPage(WebDriver driver) {
         super(driver);
+    }
+
+    /**
+     * No Accounts üzenet megjelenésének ellenőrzése
+     */
+    @Step("No Accounts üzenet megjelenésének ellenőrzése")
+    public boolean noAccountsIsLoaded() {
+        logger.info("noAccountsIsLoaded() called");
+        boolean isLoaded = isLoaded(noAccounts) && isLoaded(continueButton);
+        return isLoaded;
     }
 
     /**
@@ -82,10 +99,7 @@ public class ViewSavingsAccountsPage extends BasePage{
             savingList.add(getSavingFromCard(cardDivs));
         }
         return savingList;
-
     }
-
-
 
 
     private WebElement findAccount(String accountName) {

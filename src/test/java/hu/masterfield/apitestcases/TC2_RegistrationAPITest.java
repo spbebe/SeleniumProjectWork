@@ -1,12 +1,14 @@
 package hu.masterfield.apitestcases;
 
 import hu.masterfield.datatypes.RegistrationData;
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Test;
 
+import javax.swing.text.AbstractDocument;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,7 +53,7 @@ public class TC2_RegistrationAPITest extends BaseAPITest {
         requestBody.put("workPhone", registrationData.getWorkPhone());
 
 
-        logger.info("Start /api/v1/user POST method");
+        logger.info("Start /api/v1/user POST method.");
         /* POST kérés küldése */
         given()
                 .header(AUTH_HEADER, "Bearer " + authToken)
@@ -87,7 +89,7 @@ public class TC2_RegistrationAPITest extends BaseAPITest {
                 .statusCode(200)
                 .body("userProfile.emailAddress", equalTo(emailAddress));
 
-        logger.info("End /api/v1/user/find GET method");
+        logger.info("End /api/v1/user/find GET method.");
 
         /* Ellenőrizzük, hogy a válaszban helyesek-e a regisztrációs adatok */
         assertEquals(registrationData.getFirstName(), response.path("userProfile.firstName"));

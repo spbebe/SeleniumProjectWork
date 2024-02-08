@@ -63,5 +63,4 @@ public class RegistrationData {
         this.mobilePhone = globalTestData.getProperty(Consts.REG_MOBILE_PHONE);
         this.workPhone = globalTestData.getProperty(Consts.REG_WORK_PHONE);
     }
-
 }

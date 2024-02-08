@@ -11,7 +11,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Regisztráciős form második oldalának osztálya
+ * Regisztrációs form második oldalának osztálya
  *
  */
 @Feature("Regisztráció - 2. oldal")
@@ -52,14 +52,13 @@ public class RegistrationSecondPage extends BasePage{
 
 
     public RegistrationSecondPage(WebDriver driver) {
-
         super(driver);
     }
 
     /**
-     * Ellenőrzi, hogy megjelentek-e az oldalon a megadott elemek
+     * Ellenőrzi, hogy megjelentek-e az oldalon a megadott elemek.
      *
-     * @return true, ha az oldal betöltődött, megjelentek az elemek és kattinthatóak
+     * @return true, ha az oldal betöltődött, megjelentek az elemek és kattinthatóak.
      */
 
     @Step("Regisztrációs űrlap 2. oldalának betöltésének ellenőrzése")
@@ -81,8 +80,8 @@ public class RegistrationSecondPage extends BasePage{
 
     /**
      * Példányosítjuk a RegistrationData osztályt, hogy az oldalon található input mezőket
-     * a GlobalTestData.properties fileban megadott adatokkal tudjuk kitölteni
-     * Így a regisztráció 2. oldalának kitöltésekor nem kell felsorolni a sok bemenő paramétert
+     * a GlobalTestData.properties fileban megadott adatokkal tudjuk kitölteni.
+     * Így a regisztráció 2. oldalának kitöltésekor nem kell felsorolni a sok bemenő paramétert.
      */
     RegistrationData registrationData = new RegistrationData();
 

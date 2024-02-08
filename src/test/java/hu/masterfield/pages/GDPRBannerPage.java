@@ -26,6 +26,7 @@ public class GDPRBannerPage extends BasePage {
     private WebElement cookieUsageMessage;
 
     public GDPRBannerPage(WebDriver driver) {
+
         super(driver);
     }
 

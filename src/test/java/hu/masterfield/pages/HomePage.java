@@ -4,10 +4,9 @@ import hu.masterfield.utils.Consts;
 import hu.masterfield.utils.GlobalTestData;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
-import org.openqa.selenium.WebDriver;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -93,11 +92,12 @@ public class HomePage extends BasePage{
 
     /**
      * A HomePageről elnavigál a Create Savings oldalra a menüben.
+     *
      * @return a megnyitott Create Savings oldal objektuma
      */
     @Step("Navigálás a Create Savings oldalra")
     public CreateSavingsPage goToNewSavingsPage() {
-        logger.info("goToNewSavingsPage() called...");
+        logger.info("goToNewSavingsPage() called.");
 
         logger.trace("savingsMenu.click()");
         savingsMenu.click();
@@ -108,22 +108,22 @@ public class HomePage extends BasePage{
         takesScreenshot();
 
         return new CreateSavingsPage(driver);
-
     }
 
     /**
      * HomePageről elnavigál a View Savings oldalra a menüben.
+     *
      * @return a megnyitott View Savings oldal objektuma
      */
     @Step("Navigálás a View Savings oldalra")
     public ViewSavingsAccountsPage goToViewSavingsPage() {
-        logger.info("goToViewSavingsPage() called...");
+        logger.info("goToViewSavingsPage() called.");
 
         logger.trace("savingsMenu.click()");
         savingsMenu.click();
 
         logger.trace("viewSavingsMenuItem.click()");
-        viewCheckingMenuItem.click();
+        viewSavingsMenuItem.click();
 
         takesScreenshot();
 
@@ -131,12 +131,13 @@ public class HomePage extends BasePage{
     }
 
     /**
-     * HomePageről elnavigál a Deposit oldalra a menüben.
+     * HomePageről elnavigál a Deposit oldalra.
+     *
      * @return a megnyitott Deposit oldal objektuma
      */
-    @Step("Navigálás a Deposit oldalra")
+    @Step("Navigálás a Deposit oldalra.")
     public DepositPage goToDepositPage() {
-        logger.info("gotoDepositPage() called...");
+        logger.info("gotoDepositPage() called.");
 
         logger.trace("depositLink.click()");
         depositLink.click();
@@ -148,11 +149,12 @@ public class HomePage extends BasePage{
 
     /**
      * HomePageről elnavigálunk a Savings/Transactions oldalra.
+     *
      * @return Savings/Transactions oldal objektuma
      */
-    @Step("Navigálás a 'View Savings' oldalon található tranzakciós táblázat oldalára")
+    @Step("Navigálás a 'View Savings' oldalon található tranzakciós táblázat oldalára.")
     public TransactionsPage goToTransactionsPage() {
-        logger.info("goToTransactionsPage() called...");
+        logger.info("goToTransactionsPage() called.");
 
         logger.trace("savingsMenu.click()");
         savingsMenu.click();
@@ -170,9 +172,9 @@ public class HomePage extends BasePage{
      *
      * @return MyProfile oldal objektuma
      */
-    @Step("Navigálás a profil adatokat megjelenítő és módosító oldalra")
+    @Step("Navigálás a profil adatokat megjelenítő és módosító oldalra.")
     public MyProfilePage goToMyProfilePage() {
-        logger.info("goToMyProfilePage() called...");
+        logger.info("goToMyProfilePage() called.");
 
         logger.trace("avatarDropdownMenuButton.click()");
         avatarDropdownMenuButton.click();
@@ -190,7 +192,7 @@ public class HomePage extends BasePage{
      */
     @Step("Adatok törlése.")
     public void deleteData() {
-        logger.info("deleteData() called...");
+        logger.info("deleteData() called.");
 
         logger.trace("avatarDropdownMenuButton.click()");
         avatarDropdownMenuButton.click();
@@ -206,14 +208,12 @@ public class HomePage extends BasePage{
      *
      * @return true, ha betöltődött a HomePage
      */
-    @Step("HomePage betöltődésének ellenőrzése")
+    @Step("HomePage betöltődésének ellenőrzése.")
     public boolean isLoaded() {
-        logger.info("HomePage.isLoaded() called...");
+        logger.info("HomePage.isLoaded() called.");
         boolean isLoaded = isLoaded(savingsMenu) && isLoaded(checkingMenu)
                 && isLoaded(avatarDropdownMenuButton);
         logger.trace("isLoaded= " + isLoaded);
-
-        takesScreenshot();
 
         return isLoaded;
     }
@@ -225,7 +225,7 @@ public class HomePage extends BasePage{
      */
     @Step("Logout megvalósítása.")
     public LoginPage logout() {
-        logger.info("logout() called...");
+        logger.info("logout() called.");
 
         logger.trace("avatarDropdownMenuButton.click()");
         avatarDropdownMenuButton.click();
@@ -243,7 +243,7 @@ public class HomePage extends BasePage{
      */
     @Step("HomePage ellenőrzése.")
     public void validateHomePage() {
-        logger.info("validateHomePage() called...");
+        logger.info("validateHomePage() called.");
         assertEquals("Digital Bank", driver.getTitle());
         assertTrue(driver.getCurrentUrl().endsWith("/bank/home"));
         assertEquals("Welcome " + globalTestData.getProperty(Consts.REG_FIRST_NAME),
@@ -255,7 +255,7 @@ public class HomePage extends BasePage{
      */
     @Step("HomePage ellenőrzése profil módosítása után.")
     public void validateHomePageAfterModifyProfile() {
-        logger.info("validateHomePageAfterModifyProfile() called...");
+        logger.info("validateHomePageAfterModifyProfile() called.");
         assertEquals("Digital Bank", driver.getTitle());
         assertTrue(driver.getCurrentUrl().endsWith("/bank/home"));
         assertEquals("Welcome " + globalTestData.getProperty(Consts.MOD_FIRST_NAME),
@@ -263,6 +263,7 @@ public class HomePage extends BasePage{
     }
 
     public HomePage(WebDriver driver) {
+
         super(driver);
     }
 }
