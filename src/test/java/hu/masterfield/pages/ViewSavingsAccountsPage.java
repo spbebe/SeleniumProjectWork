@@ -41,7 +41,7 @@ public class ViewSavingsAccountsPage extends BasePage{
     private List<WebElement> cards;
 
     // Page title
-    @FindBy(xpath="//a[@id='view-savings-menu-item']")
+    @FindBy(xpath="//h1[text()='View Savings Accounts']")
     private WebElement pageTitle;
 
     @FindBy(id="largeModalLabel")
